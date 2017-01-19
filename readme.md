@@ -28,7 +28,7 @@ This project is "Docker Ready" and can be build and started with:
 Available Endpoints:
 --------------------
 **/dimensions**  
-Return the list of available dimensions that the service allow to use  
+Return the list of available dimensions that the service allows to use  
     
 **/upload**  
 Simple page for upload an image file (max size 10M)  
