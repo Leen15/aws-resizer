@@ -1,7 +1,7 @@
 AWS RESIZER
 ===========
 
-This project allow to upload an image to S3 and retrieve it in different dimensions.  
+This project allow to upload an image on S3 and retrieve it in different dimensions.  
   
 First of all, for use it you have to set these ENVS:
 
