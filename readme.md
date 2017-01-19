@@ -34,8 +34,14 @@ Return the list of available dimensions that the service allows to use
 Simple page for upload an image file (max size 10M)  
 
 **/get/ID**  
-Return the remote image
+Return a json with the remote image url
 
 **/get/ID?size=WIDTHxHEIGHT**  
-Return the remote image with this size if allowed.
+Return a json with the remote image url with this size if allowed.
 If this resized image doesn't exist on S3 the service resizes the original image and upload it to S3.
+
+**/get/ID?mode=show**  
+Show the remote image
+
+**/get/ID?mode=redirect**  
+Redirect to the path of remote image

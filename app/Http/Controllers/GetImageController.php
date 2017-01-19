@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Storage;
 #use Intervention\Image\Facades\Image as Image;
 use Intervention\Image\ImageManagerStatic as Image;
+use Redirect;
 
 class GetImageController extends Controller
 {
@@ -26,6 +27,7 @@ class GetImageController extends Controller
         $s3 = Storage::disk('s3');
 
         $size = $request->input('size');
+        $response_mode = $request->input('mode');
 
         if ($size == null)
         {
@@ -74,7 +76,22 @@ class GetImageController extends Controller
         $response->requested_path = $filePath;
         $response->remote_url = $remoteUrl;
 
-        return response()->json($response);
+        if ($response_mode == "show")
+        {
+            $image = $s3->get($filePath);
+            Image::configure(array('driver' => 'imagick'));
+            return Image::make($image)->response();
+        }
+        else if ($response_mode == "redirect")
+        {
+            return Redirect::away($remoteUrl);
+        }
+        else
+        {
+            return response()->json($response);
+        }
+
+
 
     }
 
