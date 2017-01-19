@@ -34,7 +34,7 @@ class UploadController extends Controller {
                 $remoteUrl = str_replace("//", "/", $s3->getDriver()->getAdapter()->getClient()->getObjectUrl(env('AWS_BUCKET'), $filePath));
 
                 // sending back with message
-                Session::flash('success', 'Upload successfully to ' . $remoteUrl);
+                Session::flash('success', 'Upload successfully to ' . url('/') . "/get/" . $fileName);
                 return Redirect::to('upload');
             }
             else {
