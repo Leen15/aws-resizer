@@ -101,6 +101,7 @@ RUN chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP config/ && \
     chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP public/ && \
     chown -R $APACHE_RUN_USER:root logs/ && \
     chown -R $APACHE_RUN_USER:root storage/ && \
+    chown -R $APACHE_RUN_USER:root bootstrap/ && \
     chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP vendor/ && \
     chmod +x $PROJECT_PATH/generate_env.sh && \
     chmod +x start.sh
